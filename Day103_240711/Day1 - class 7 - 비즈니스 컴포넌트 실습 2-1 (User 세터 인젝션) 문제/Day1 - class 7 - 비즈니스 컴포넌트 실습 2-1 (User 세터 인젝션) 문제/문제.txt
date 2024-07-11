@@ -1,0 +1,5 @@
+스프링 설정파일에서 UserServiceImpl 객체를 만들고
+멤버변수 userDAO에 세터 인젝션으로 의존성 주입을 한다.
+UserDAO 객체를 만든다.
+
+UserServiceClient에 main 메소드를 실행한다.

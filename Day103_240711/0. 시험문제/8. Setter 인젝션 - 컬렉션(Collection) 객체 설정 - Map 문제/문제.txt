@@ -1,0 +1,5 @@
+스프링 설정 파일에서 CollectionBean 객체를 만든다.
+세터 인젝션으로 addressList를 다음 값을 가진 Map으로 초기화한다.
+키 고길동 값 서울시 강남구 역삼동
+키 마이콜 값 서울시 강서구 화곡동
+CollectionBeanClient의 main 메소드를 실행한다.

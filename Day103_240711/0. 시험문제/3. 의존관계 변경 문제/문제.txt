@@ -1,0 +1,9 @@
+1. Speaker 인터페이스를 이클립스를 통해서 만들기
+2. Speaker 인터페이스를 구현한 AppleSpeaker 만들기
+3. 스프링 설정 파일에서 삼성티비 객체를 만든다.
+생성자 인젝션을 통해서 멤버변수 Speaker에 SonySpeaker를
+price에 2700000으로 초기화한다.
+4. 스프링 설정 파일에서 SonySpeaker 객체를 만든다.
+5. TVUser main 메소드 실행
+6. 3번에서 Speaker에 AppleSpeaker로 대체하자.
+7. TVUser main 메소드 실행
