@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="speaker" class="polymorphism.AppleSpeaker"/>
+	<bean id="tv" class="polymorphism.SamsungTV" p:speaker-ref="speaker" p:price="2700000"/>
+	<!-- setSpeaker(speaker) 호출, setPrice(2700000)호출 -->
+</beans>
+
+
+
+
+<!-- p:를 쓰기위해선 이 구문이 추가되어야함 -->
+<!-- xmlns:p="http://www.springframework.org/schema/p" -->

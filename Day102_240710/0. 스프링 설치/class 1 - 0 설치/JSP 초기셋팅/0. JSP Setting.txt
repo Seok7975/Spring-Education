@@ -1,0 +1,8 @@
+1. Apache Tomcat 설치
+http://tomcat.apache.org/ -> Download -> Binary Distributions - Core - Zip
+앞축해제후 C:\에 위치시킨다.
+2. http://www.eclipse.org/ -> Download -> Eclipse IDE for Java EE Developers
+3. Eclipse에서 아파치 톰캣 서버 셋팅
+Server tap에서 Create Server -> Apache 서버 선택 -> 
+Server Location 
+Use Tomcat installation(takes control of Tomcat installation)

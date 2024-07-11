@@ -1,0 +1,12 @@
+﻿Window - Preferences - Web - JSP Files - Editor - Templates
+
+New Click
+
+Name : HTML5_JSP
+Context : New JSP
+Description : HTML5 JSP 기본템플릿
+Pattern : JSP(Html5) 내용 복사
+
+사용방법
+New - JSP File을 선택 후 Finish를 누르지 않고 Next를 눌러 다음 화면으로 넘어간다.
+거기서 방금 만든 파일을 선택

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="collectionBean" class="com.springbook.ioc.injection.CollectionBean">
+		<property name="addressList">
+			<set value-type="java.lang.String">
+				<value>서울시 강남구 역삼동</value>
+				<value>서울시 성동구 성수동</value>
+				<value>서울시 성동구 성수동</value>
+			</set>
+		</property>
+	</bean>
+</beans>
+
+<!-- 
+	위 설정을 보면 "서울시 성동구 성수동"이라는 주소가 두 번 등록된 것을 확인할 수 있다. 그러나 Set 컬렉션은 같은
+	데이터를 중복해서 저장하지 않으므로 실제 실행해보면 "서울시 성동구 성수동"이라는 주소는 하나만 저장된다.
+ -->

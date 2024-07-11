@@ -1,0 +1,3 @@
+﻿이클립스 웹 브라우저를 크롬 브라우저로 바꾸기
+
+Window - Preferences - General - Web Browser - Use external web browser - Chrome

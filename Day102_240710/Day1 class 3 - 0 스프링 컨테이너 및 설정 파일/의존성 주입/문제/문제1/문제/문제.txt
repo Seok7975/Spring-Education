@@ -1,0 +1,1 @@
+문제 폴더에 있는 SpringDI2를 이용하여 SonySpeaker를 생성하고 SamsungTV에 의존성 주입을 통해 생성자에 객체를 넣어보자.

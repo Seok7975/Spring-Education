@@ -1,0 +1,11 @@
+﻿이클립스 UTF-8로 인코딩 변경하기
+
+Window - Preferences - General - Workspace - Text file encoding - Other UTF-8
+
+Window - Preferences - Web - CSS Files - Encoding : UTF - 8 선택
+
+Window - Preferences - Web - HTML Files - Encoding : UTF - 8 선택
+
+Window - Preferences - Web - JSP Files - Encoding : UTF - 8 선택
+
+Window - Preferences - General - Content Types - Default encoding UTF - 8

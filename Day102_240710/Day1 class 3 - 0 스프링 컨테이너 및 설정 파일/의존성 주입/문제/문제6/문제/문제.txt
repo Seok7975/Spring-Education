@@ -1,0 +1,5 @@
+문제 폴더에 있는 CollectionBean의 addressList에 xml을 이용하여 
+서울시 강남구 역삼동
+서울시 성동구 행당동
+을 저장하고
+MainClass에서 그 내용을 출력해보자.
