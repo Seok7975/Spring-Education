@@ -1,0 +1,3 @@
+유지보수 체험을 해보자.
+BoardServiceImpl 클래스에 있는 LogAdvice 클래스를 Log4jAdvice로 바꾸자.
+그리고 당연히 이전 LogAdvice에 있는 printLog 메소드도 Log4jAdvice에 있는 printLogging으로 바꿔야 할 것이다.

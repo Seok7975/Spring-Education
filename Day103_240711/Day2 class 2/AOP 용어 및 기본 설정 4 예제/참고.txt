@@ -1,0 +1,11 @@
+applicationContext.xml에 pointcut-ref의 설정을 바꿔가면서, BoardServiceAOPTestClient를 실행시켜보자.
+
+interface를 구현하지 않은 클래스에 aop를 적용하면 에러남.
+에러나지 않게 할려면
+pom.xml에 
+		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>2.2.2</version>
+		</dependency>

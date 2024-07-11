@@ -1,0 +1,7 @@
+class 7 - 비즈니스 컴포넌트 실습 2-1 (User 세터 인젝션) 문제를 애너테이션을 이용하는 형태로 바꾸자.
+
+UserServiceImpl를 애너테이션으로 객체를 생성하자.
+멤버변수 UserDAO를 애너테이션으로 초기화하자.
+
+UserDAO를 애너테이션으로 객체를 생성하자.
+UserServiceClient의 main 메소드를 실행하자.

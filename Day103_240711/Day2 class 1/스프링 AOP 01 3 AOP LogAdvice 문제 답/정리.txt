@@ -1,0 +1,16 @@
+AOP 시작하기
+이번에는 스프링의 AOP를 이용해서 핵심 관심과 횡단 관심을 분리해보자. 이 실습이 마무리되면 BoardServiceImpl 소스와는 전혀 무관하게 LogAdvice나 Log4jAdvice 클래스의 메소드를 실행할 수 있게 된다.
+
+pom.xml에 aspectj 추가
+
+		<!-- aspectj 추가 -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.19</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+//////////////////////////////////////////////////////////////////////
+
+AOP 설정을 추가하려면 AOP에서 제공하는 엘리먼트들을 사용해야 한다. 따라서 스프링 설정 파일(applicationContext.xml)에서 [Namespaces] 탭을 클릭하고 aop 네임스페이스를 추가한다.
