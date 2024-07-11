@@ -1,8 +1,0 @@
-스프링 설정파일에 CollectionBean 객체를 만든다.
-세터 인젝션으로
-다음 값을 넣는다.
-서울시 강남구 역삼동
-서울시 성동구 성수동
-서울시 성동구 성수동
-
-CollectionBeanClient의 main 메소드를 실행한다.

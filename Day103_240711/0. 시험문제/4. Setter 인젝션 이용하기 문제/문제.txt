@@ -1,5 +1,0 @@
-스프링 설정파일에서 SamsungTV 객체를 만든다.
-Setter Injection으로 멤버변수 speaker에 애플스피커를
-price에 2700000을 주입한다.
-SonySpeaker 객체를 만든다.
-AppleSpeaker 객체를 만든다.

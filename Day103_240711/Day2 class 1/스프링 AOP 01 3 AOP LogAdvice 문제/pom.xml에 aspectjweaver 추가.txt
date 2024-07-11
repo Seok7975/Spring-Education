@@ -1,7 +1,0 @@
-		<!-- aspectj 추가 -->
-		<dependency>
-		    <groupId>org.aspectj</groupId>
-		    <artifactId>aspectjweaver</artifactId>
-		    <version>1.9.19</version>
-		    <scope>runtime</scope>
-		</dependency>
