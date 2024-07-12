@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 해당 bean이 스프링 컨테이너에 의해 단 하나만 생성되어 운용되게 함. -->
+	<bean id="tv" class="polymorphism.SamsungTV" scope="singleton"/>
+	
+	<!-- 해당 <bean>이 요청될 때마다 매번 새로운 객체를 생성하여 반환 -->
+	<!-- <bean id="tv" class="polymorphism.SamsungTV" scope="prototype"/> -->
+</beans>

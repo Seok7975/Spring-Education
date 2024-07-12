@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="Day102_240710_Spring_IOC_and_Spring_Container_Driving"/>
-<aop-project name="Day103_240711_FactoryPattern"/>
+<aop-project name="Day102_240710_3_SpringContainerSingleton"/>
+<aop-project name="Day102_240710_4_Dependency Injection"/>
+<aop-project name="Day102_240710_2_Spring_IOC_and_Spring_Container_Driving"/>
 </aop-reference-model>
