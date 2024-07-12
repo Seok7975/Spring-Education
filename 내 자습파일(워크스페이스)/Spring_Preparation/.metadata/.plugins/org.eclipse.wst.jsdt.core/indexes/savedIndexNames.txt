@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+C:\K_Digital_Training\Spring-Education\Spring_Preparation\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3352079347.index
+2922926084.index
+1387371791.index
+1872475793.index

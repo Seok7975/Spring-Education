@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 아이디는 유일해야하므로 같은 아이디에 여러 태그 불가 -->
+	<!-- 
+	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod"/>
+	<bean id="tv" class="polymorphism.SamsungTV" destroy-method="destroyMethod"/>
+	 -->
+	 
+	 <!-- 해결방법 1, 한 태그에 속성을 몰아넣기 -->
+	<bean id="tv" class="polymorphism.SamsungTV" lazy-init="true" init-method="initMethod" destroy-method="destroyMethod"/>
+	 
+	 <!-- 해결방법 2, 아이디를 다르게 주기(비추) -->
+	 <!-- 
+	  <bean id="tv1" class="polymorphism.SamsungTV" init-method="initMethod"/>
+	  <bean id="tv2" class="polymorphism.SamsungTV" destroy-method="destroyMethod"/>
+	  -->
+	  
+</beans>
+
+
+<!-- 
+lazy-intit : 컨테이너 구동되는 시점이 아닌 해당 <bean>이 사용되는 시점에 객체를 생성하도록 하게 하는 속성
+속성을 true로 놓으면 <bean>을 미리 생성하지 않고 클라이언트가 요청하는 시점에 생성 => 메모리 관리 효율적
+
+intit-method : 객체를 생성한 후에 멤버변수 초기화 작업이 필요할 때 사용.
+
+destroy-method : 스프링 컨테이너가 객체를 삭제하기 직전에 호출될 임의의 메서드 지정할 때 사용.
+ -->
+ 

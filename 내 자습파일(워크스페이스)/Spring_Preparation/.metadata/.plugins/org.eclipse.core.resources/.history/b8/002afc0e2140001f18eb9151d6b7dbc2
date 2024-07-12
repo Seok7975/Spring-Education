@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 아이디는 유일해야하므로 같은 아이디에 여러 태그 불가 -->
+	<!-- 
+	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod"/>
+	<bean id="tv" class="polymorphism.SamsungTV" destroy-method="destroyMethod"/>
+	 -->
+	 
+	 <!-- 해결방법 1 -->
+	 <bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod"/>
+</beans>
+</beans>
+ 
