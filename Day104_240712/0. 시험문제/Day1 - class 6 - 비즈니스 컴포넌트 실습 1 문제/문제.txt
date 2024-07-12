@@ -1,0 +1,19 @@
+주어진 소스를 사용하여 구현하자.
+
+MySQL JDBC가 없다면 다운로드 받도록 하자.(8.0.33 버전으로 다운받자)
+
+BoardDAO를 애너테이션으로 생성하자.
+
+BoardServiceImpl를 애너테이션으로 생성하자.
+BoardServiceImpl에 멤버변수 BoardDAO를 위에서 만든 BoardDAO로 초기화 하자.
+
+BoardServiceClient에 main 메소드에서
+1. Spring 컨테이너를 구동한다.
+2. Spring 컨테이너로부터 BoardServiceImpl 객체를 Lookup한다.
+3. 글 등록 기능 테스트
+BoardVO vo = new BoardVO();
+vo.setTitle("임시 제목");
+vo.setWriter("홍길동");
+vo.setContent("임시 내용.....................");
+4.글 목록 검색 기능 테스트(글 목록 출력)
+5. Spring 컨테이너 종료

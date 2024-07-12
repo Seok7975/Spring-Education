@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+	
+	<bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"></bean>
+ 	<aop:config>
+		<aop:pointcut id="allPointcut" expression ="execution(* com.springbook.biz..*Impl.*(..))" />
+		<aop:pointcut id="getPointcut" expression ="execution(* com.springbook.biz..*Impl.get*(..))" />
+		<aop:aspect ref="afterReturning">
+			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
+
+
+<!-- 
+	returning 속성으로 바인딩 했기 때문에
+	반환형이 없는 비즈니스 메소드를 호출하면 에러가 난다.
+	allPointcut을 참조해서도 해볼 것
+ -->

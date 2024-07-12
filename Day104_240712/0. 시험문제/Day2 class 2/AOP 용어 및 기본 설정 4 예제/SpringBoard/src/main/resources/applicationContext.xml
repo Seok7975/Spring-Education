@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+	<context:component-scan base-package="com.springbook.biz"></context:component-scan>
+	<bean id="log" class="com.springbook.biz.common.LogAdvice"></bean>
+	<aop:config>
+		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
+		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />
+		<aop:pointcut id="getBoardListPointcut" expression="execution(java.util.List com.springbook.biz.board.impl.BoardServiceImpl.getBoardList(com.springbook.biz.board.BoardVO) )" />
+		<aop:pointcut id="hiPointcut" expression="execution(void com.springbook.biz..*.hi())"/>
+		<aop:pointcut id="goodPointcut" expression="execution(int com.springbook.biz..*.good(..))"/>
+		<aop:pointcut id="nicePointcut" expression="execution(java.lang.String com.springbook.biz..*Impl.nice(..))"/>
+		<!-- <aop:pointcut id="nicePointcut" expression="execution(String com.springbook.biz..*Impl.nice(..))"/> -->
+		<aop:pointcut id="addPointcut" expression="execution(* com.springbook.biz..Board*.add(int, int))"/>
+		<aop:pointcut id="addPointcut2" expression="execution(* com.springbook.biz..Board*.add(*,*))"/>
+		<aop:pointcut id="morninghiPointcut" expression="execution(void com.springbook.biz..*.*hi())"/>
+		<aop:pointcut id="notVoidPointcut" expression="execution(!void com.springbook.biz..*.*Impl(..))"/>
+		
+		<aop:aspect ref="log">
+			<aop:before pointcut-ref="notVoidPointcut" method="printLog" />
+		</aop:aspect>
+	</aop:config>	
+</beans>
+
+<!-- 
+<aop:pointcut id="notVoidPointcut" expression="execution(!void com.springbook.biz..*.*(..))"/>
+모든 클래스에서 interface를 구현하지 않고 aop를 쓰게 되면 에러남.
+에러가 나지 않게 하려면 다음을 pom.xml에 써서 라이브러리 다운로드
+
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>2.2.2</version>
+		</dependency>
+ -->
