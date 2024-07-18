@@ -1,0 +1,24 @@
+예외 처리
+
+클라이언트의 요청에 따라 Controller의 메소드가 실행되다 보면 예기치 못한 예외가 발생 할 수 있다. 하지만 예외가 발생했을 때 사용자에게 적절한 메시지가 담긴 화면을 보여줘야지 500(Internal Server Error)번 에러 화면을 전송하는 것은 문제가 있다.
+예를 들어 클라이언트가 로그인 요청을 전송할 때, 아이디를 입력하지 않으면 IllegalArgumentException이 발생한다고 가정하고 LoginController를 수정하자.
+
+LoginController
+
+	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	public String login(UserVO vo, UserDAO userDAO, HttpSession session) {
+		System.out.println("로그인 처리");
+		if(vo.getId() == null|| vo.getId().equals("")) {
+			throw new IllegalArgumentException("아이디는 반드시 입력해야 합니다.");
+		}		
+		
+		UserVO user = userDAO.getUser(vo);
+		if(user != null) {
+			session.setAttribute("userName", user.getName());
+			return "getBoardList.do";
+		}
+		else return "login.jsp";
+	}
+
+그리고 나서 로그인 화면에서 아이디 입력 없이 로그인 요청을 서버에 전송하면 예외 화면이 클라이언트에 제공된다.
+일반 사용자는 이런 메시지의 의미도 모를뿐더러 이런 식으로 예외를 내버려둬서도 안 된다. 스프링에서는 이런 예외를 처리하기 위해 XML 설정과 어노테이션 설정 두 가지 방법을 제공한다.

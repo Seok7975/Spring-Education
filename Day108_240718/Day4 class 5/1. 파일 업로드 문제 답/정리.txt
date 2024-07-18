@@ -1,0 +1,90 @@
+insertBoard.jsp
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>새글 등록</title>
+</head>
+<body>
+	<h1>글 등록</h1>
+	<a href="logout.do">Log-out</a>
+	<hr>
+	<form action="insertBoard.do" method="post" enctype="multipart/form-data">
+		<table border="1">
+			<tr>
+				<td>제목</td><td><input type="text" name="title"></td>
+			</tr>
+			<tr>
+				<td>작성자</td><td><input type="text" name="writer"></td>
+			</tr>
+			<tr>
+				<td>내용</td><td><textarea name="content" cols="40" rows="10"></textarea></td>
+			</tr>
+			<tr>
+				<td>업로드</td><td><input type="file" name="uploadFile"></td>
+			</tr>			
+			<tr>
+				<td colspan="2"><input type="submit" value=" 새글 등록 " /></td>
+			</tr>
+		</table>
+	</form>
+	<hr>
+	<a href="getBoardList.jsp">글 목록 가기</a>
+</body>
+</html>
+
+
+BoardVO
+
+	private MultipartFile uploadFile;
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
+pom.xml
+
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.3.1</version>
+		</dependency>
+
+MultipartResolver 설정
+스프링 설정 파일에 CommonsMultipartResolver를 <bean> 등록해야 한다.
+
+presentation-layer.xml
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000"></property>
+	</bean>	
+
+이 설정에서 매우 중요한 점이 있는데, 바로 CommonsMultipartResolver 클래스의 아이디(id)나 이름(name) 값이다. 지금까지 특정 클래스를 스프링 설정 파일에 <bean> 등록할 때, 참조할 Bean의 이름을 마음대로 등록했다. 다만 등록된 이름이 전체 스프링 설정 파일 내에서 유일한 이름이면 문제가 없었다.
+그런데 CommonsMultipartResolver 클래스는 그 이름이 정해져 있다. 정확하게는 DispatcherServlet이 특정 이름으로 등록된 CommonsMultipartResolver 객체만 인식하도록 프로그램되어 있다. 따라서 반드시 CommonsMultipartResolver의 아이디 값은 "multipartResolver"를 사용해야 한다. 그리고 더불어 이후에 스프링 설정 파일에 등록되는 클래스 중에서 이름이 "Resolver"로 끝나는 클래스들은 대부분 아이디가 정해져 있다. 따라서 이런 클래스들을 등록할 때는 조금 더 신경을 써야 한다. CommonsMultipartResolver 등록에서 maxUploadSize에 대한 Setter 인젝션은 업로드할 수 있는 파일의 크기를 제한하기 위한 설정이다. maxUploadSize를 지정하지 않으면 기본으로 "-1"이 설정되는데 이는 파일 크기가 무제한이라는 의미다.
+
+BoardController
+
+	// 글 등록
+	@RequestMapping(value="/insertBoard.do")
+	public String insertBoard(BoardVO vo) throws IOException {
+		System.out.println("글 등록 처리");
+		// 파일 업로드 처리
+		MultipartFile uploadFile = vo.getUploadFile();
+		if(!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File("c:/fileUpload/" + fileName));
+		}
+		boardService.insertBoard(vo);
+		return "getBoardList.do";
+	}
+
+
+경로설정 참고
+
+https://stackoverflow.com/questions/18664579/recommended-way-to-save-uploaded-files-in-a-servlet-application

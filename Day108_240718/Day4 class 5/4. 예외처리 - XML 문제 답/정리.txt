@@ -1,0 +1,18 @@
+XML 기반의 예외 처리
+스프링은 예외 처리를 어노테이션이 아닌 XML 설정 방식으로도 지원하는데, 이 방법이 조금 더 쉬운 방법이라 할 수 있다. 앞에서 처리한 어노테이션 기반의 설정과 개념은 같지만 CommonExceptionHandler 처럼 예외 처리 클래스를 별도로 구현하지 않아도 되며, 단지 XML 설정만 처리하면 된다.
+presentaion-layer.xml 파일에 SimpleMappingExceptionResolver 클래스를 <bean> 등록하기만 하면 된다.
+
+	<!-- 예외 처리 설정 -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArithmeticException">
+					common/arithmeticError.jsp
+				</prop>
+				<prop key="java.lang.NullPointerException">
+					common/nullPointerError.jsp
+				</prop>
+			</props>
+		</property>
+		<property name="defaultErrorView" value="common/error.jsp" />
+	</bean>

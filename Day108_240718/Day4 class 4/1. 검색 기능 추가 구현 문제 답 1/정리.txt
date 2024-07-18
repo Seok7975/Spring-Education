@@ -1,0 +1,68 @@
+SpringBoard
+
+	private String searchCondition;
+	private String searchKeyword;
+
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
+BoardController
+
+	// 글 목록 검색
+	@RequestMapping("/getBoardList.do")
+	public String getBoardList(BoardVO vo, Model model) {
+		System.out.println("글 목록 검색 처리");
+		
+		// Null Check
+		if(vo.getSearchCondition() == null) vo.setSearchCondition("TITLE");
+		if(vo.getSearchKeyword() == null) vo.setSearchKeyword("");
+		
+		model.addAttribute("boardList", boardService.getBoardList(vo));		// Model 정보 저장 
+    	return "getBoardList.jsp";							
+	}	
+
+BoardDAO 클래스 
+
+	// 글 목록 조회
+	public List<BoardVO> getBoardList(BoardVO vo){
+		System.out.println("===> JDBC로 getBoardList() 기능 처리");
+		List<BoardVO> boardList = new ArrayList<BoardVO>();
+		String searchKeyword = vo.getSearchKeyword();
+		
+		String sqlT = "SELECT * FROM BOARD WHERE TITLE LIKE '%" + searchKeyword +"%' ORDER BY SEQ DESC";
+		String sqlC = "SELECT * FROM BOARD WHERE CONTENT LIKE '%" + searchKeyword + "%' ORDER BY SEQ DESC";
+		String sql = null;
+		if(vo.getSearchCondition().equals("TITLE")) sql = sqlT;
+		else if(vo.getSearchCondition().equals("CONTENT")) sql = sqlC;		
+		System.out.println("sql" + sql);
+		
+		try(Connection conn = JDBCUtil.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery())
+		{
+			while(rs.next()) {
+				BoardVO board = new BoardVO();
+				board.setSeq(rs.getInt("SEQ"));
+				board.setTitle(rs.getString("TITLE"));
+				board.setWriter(rs.getString("WRITER"));
+				board.setContent(rs.getString("CONTENT"));
+				board.setRegDate(rs.getDate("REGDATE"));
+				board.setCnt(rs.getInt("CNT"));
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardList;
+	}
