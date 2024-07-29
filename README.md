@@ -19,4 +19,6 @@ org.springframework.jdbc가 계속 import가 안되었다. pom.xml에 Spring JDB
 
 톰캣 서버가 겹침현상이 발생해 이를 해결했어야 함.
 -> <Context docBase 부분을 보면 여러개일 것이다. 여기서 실행할것만 남기고 삭제하였다.
-그랬더니 해결 완료
+그랬더니 해결 완료<br><br><br>
+
+왜 워크스페이스 파일 안올라가냐. 되는게없네
