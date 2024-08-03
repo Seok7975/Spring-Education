@@ -21,4 +21,4 @@ org.springframework.jdbc가 계속 import가 안되었다. pom.xml에 Spring JDB
 -> <Context docBase 부분을 보면 여러개일 것이다. 여기서 실행할것만 남기고 삭제하였다.
 그랬더니 해결 완료<br><br><br>
 
-오픈 api를 받으려는데 자꾸 200이 뜨지만 값이 안불러와짐. 속성값이 안맞는걸까?
+오픈 api를 받으려는데 자꾸 200이 뜨지만 값이 안불러와짐. 속성값이 안맞는걸까?<br>
