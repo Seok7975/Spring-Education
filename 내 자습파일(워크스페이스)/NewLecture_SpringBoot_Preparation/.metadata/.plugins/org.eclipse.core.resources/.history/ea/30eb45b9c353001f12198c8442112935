@@ -1,0 +1,10 @@
+package com.newlecture.web.controller.customer;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class NoticeController {
+	@RequestMapping("/customer/notice/list") // list, detail, edit, register => 담당 notice컨트롤러
+	public String list() {
+		return "";
+	}
+}

@@ -1,0 +1,5 @@
+spring.application.name=SpringWeb
+
+spring.mvc.view.prefix=/WEB-INF/view/
+
+#프론트컨트롤러는 리소스 뷰리절버한테 반환되는 .jsp를 찾아라하고하는데, 접두사를 붙여 반환

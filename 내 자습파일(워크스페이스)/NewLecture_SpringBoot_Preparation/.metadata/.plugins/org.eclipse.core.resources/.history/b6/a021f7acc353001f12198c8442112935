@@ -1,0 +1,5 @@
+package com.newlecture.web.controller.customer;
+
+public class NoticeController {
+
+}

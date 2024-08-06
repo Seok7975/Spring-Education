@@ -1,0 +1,31 @@
+package com.newlecture.web.controller.customer;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+//@RestController : 문자를 읽어오려면 RestContoller
+@Controller // 뷰페이지를 불러오려면 그냥 Controller
+@RequestMapping("/WEB-INF/view/customer/notice/")
+public class NoticeController {
+	
+	@RequestMapping("list") // list, detail, edit, register => 담당 notice컨트롤러
+	public String list(Model model) {
+		
+		model.addAttribute("test", "Hello~");
+		return "list.jsp"; // RequestMapping의 경로와 같다면 생략가능
+	}
+	
+	@RequestMapping("detail") // list, detail, edit, register => 담당 notice컨트롤러
+	public String detail() {
+		return "detail.jsp";
+	}
+	
+	@RequestMapping("yunsop") // list, detail, edit, register => 담당 notice컨트롤러
+	public String yunsop() {
+		return "yunsop.jsp";
+	}
+}
+
+
+// src의 webapp에도 RequstMapping의 경로처럼 똑같이 폴더를 만들어주면 좋음

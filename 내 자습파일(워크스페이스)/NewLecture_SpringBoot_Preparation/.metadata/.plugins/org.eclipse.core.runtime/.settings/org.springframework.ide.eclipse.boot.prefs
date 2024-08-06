@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web=1
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=SpringWeb
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=3.3.2
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Newlecture Spring Boot Project
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.newlecture
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=21
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=SpringWeb
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.newlecture.web
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=jar
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=MAVEN
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.version=1.0
+org.springframework.ide.eclipse.boot.wizard.initializr.url=https\://start.spring.io\n

@@ -1,0 +1,18 @@
+package com.newlecture.web.controller.customer;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class NoticeController {
+	@RequestMapping("/customer/notice/list") // list, detail, edit, register => 담당 notice컨트롤러
+	public String list() {
+		return "";
+	}
+	
+	@RequestMapping("/customer/notice/detail") // list, detail, edit, register => 담당 notice컨트롤러
+	public String detail() {
+		return "";
+	}
+}
+
+
+// src의 webapp에도 RequstMapping의 경로처럼 똑같이 폴더를 만들어주면 좋음

@@ -1,0 +1,9 @@
+INDEX VERSION 1.134
+C:\K_Digital_Training\Spring-Education\NewLecture_SpringBoot_Preparation\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1802725293.index
+\SpringWeb\src\main\java
+C:\K_Digital_Training\Spring-Education\NewLecture_SpringBoot_Preparation\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\96556266.index
+\SpringWeb\src\main\java
+C:\K_Digital_Training\Spring-Education\NewLecture_SpringBoot_Preparation\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1261683048.index
+\SpringWeb\src\main\java
+C:\K_Digital_Training\Spring-Education\NewLecture_SpringBoot_Preparation\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2024848730.index
+\SpringWeb\src\main\java
